@@ -1,0 +1,15 @@
+Escribe una función que encuentre el primer carácter de un cadena de texto que no se repite. Prueba tu función con: 'abacddbec'
+Escribe una función que implemente el algoritmo 'bubble-sort' para ordenar una lista de números.
+Escribe dos funciones: la primera que invierta un arreglo de números y regrese un nuevo arreglo con el resultado; la segunda que modifique el mismo arreglo que se pasa como argumento. No se permite usar la función integrada 'reverse'.
+Escribe una función que reciba una cadena de texto y regrese una nueva con la primer letra de cada palabra en mayúscula.
+Escribe una función que calcule el máximo común divisor de dos números.
+Crea una función que cambie una cadena de texto a 'Hacker Speak'. Por ejemplo, para la cadena 'Javascript es divertido', su hacker speak es: 'J4v45c1pt 35 d1v3rt1d0'.
+Escribe una función que reciba un número, y regrese una lista con todos sus factores. Por ejemplo: factoriza(12) -> [1, 2, 3, 4, 6, 12].
+Escribe una función que quite los elementos duplicados de un arreglo y regrese una lista con los elementos que quedan. Por ejemplo: quitaDuplicados([1, 0, 1, 1, 0, 0]) -> [1, 0]
+Escribe una función que reciba como parámetro una lista de cadenas de texto, y regrese la longitud de la cadena más corta.
+Escribe una función que revise si una cadena de texto es un palíndromo o no.
+Escribe una función que tome una lista de cadena de textos y devuelva una nueva lista con todas las cadenas en orden alfabético.
+Escribe una función que tome una lista de números y devuelva la mediana y la moda.
+Escribe una función que tome una lista de cadenas de texto y devuelva la cadena más frecuente.
+Escribe una función que tome un número y devuelva verdadero si es una potencia de dos, falso de lo contrario.
+Escribe una función qu
