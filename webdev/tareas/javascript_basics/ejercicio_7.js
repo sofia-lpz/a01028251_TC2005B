@@ -14,3 +14,5 @@ function factoriza(num){
     }
     return factors;
 }
+
+console.log(factoriza(12));
