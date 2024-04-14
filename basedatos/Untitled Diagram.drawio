@@ -1,14 +1,14 @@
-<mxfile host="app.diagrams.net" modified="2024-04-14T23:36:49.590Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="rDvtB6Qsi_Z4LYM9eF2N" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-14T23:47:36.696Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="rTRdcABz5c05mgO0ZjBC" version="24.2.5" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="1854" dy="1788" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1531" dy="1567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="jPjoeAyWQZr9FaHYXFAh-9" value="Player" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="180" y="140" width="120" height="60" as="geometry" />
+          <mxGeometry x="210" y="60" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="jPjoeAyWQZr9FaHYXFAh-10" value="&lt;u&gt;username&lt;/u&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="230" width="120" height="80" as="geometry" />
+          <mxGeometry x="150" y="-50" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="jPjoeAyWQZr9FaHYXFAh-11" value="pokemon_card" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="570" y="400" width="120" height="60" as="geometry" />
@@ -26,13 +26,10 @@
           <mxGeometry x="520" y="490" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="jPjoeAyWQZr9FaHYXFAh-17" value="attack" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="220" y="430" width="120" height="60" as="geometry" />
+          <mxGeometry x="120" y="410" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="jPjoeAyWQZr9FaHYXFAh-18" value="damage" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="80" y="490" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="jPjoeAyWQZr9FaHYXFAh-19" value="pokemon" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="220" y="510" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="jPjoeAyWQZr9FaHYXFAh-27" value="description" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="130" y="600" width="120" height="80" as="geometry" />
@@ -41,10 +38,10 @@
           <mxGeometry x="-10" y="570" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="jPjoeAyWQZr9FaHYXFAh-29" value="type" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="480" y="100" width="120" height="60" as="geometry" />
+          <mxGeometry x="470" y="80" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="jPjoeAyWQZr9FaHYXFAh-30" value="&lt;u&gt;type_id&lt;/u&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="610" y="20" width="120" height="80" as="geometry" />
+          <mxGeometry x="590" y="-10" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="jPjoeAyWQZr9FaHYXFAh-31" value="type varchar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="450" y="-20" width="120" height="80" as="geometry" />
@@ -52,8 +49,35 @@
         <mxCell id="jPjoeAyWQZr9FaHYXFAh-33" value="evolution_phase" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="640" y="580" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="jPjoeAyWQZr9FaHYXFAh-34" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="490" y="600" width="120" height="80" as="geometry" />
+        <mxCell id="jPjoeAyWQZr9FaHYXFAh-34" value="past_evolution_pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="600" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jPjoeAyWQZr9FaHYXFAh-35" value="next_evolution_pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="680" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jPjoeAyWQZr9FaHYXFAh-36" value="habilidad" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="550" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jPjoeAyWQZr9FaHYXFAh-37" value="energy_requirenment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="440" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jPjoeAyWQZr9FaHYXFAh-38" value="energy_card" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="850" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jPjoeAyWQZr9FaHYXFAh-40" value="&lt;u&gt;energy_card_id&lt;br&gt;&lt;/u&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="920" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jPjoeAyWQZr9FaHYXFAh-41" value="&lt;u&gt;pokemon_card_id&lt;br&gt;&lt;/u&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jPjoeAyWQZr9FaHYXFAh-42" value="trainer_card" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jPjoeAyWQZr9FaHYXFAh-43" value="trainer_card_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-130" y="230" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jPjoeAyWQZr9FaHYXFAh-44" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="120" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
