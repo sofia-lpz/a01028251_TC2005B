@@ -1,39 +1,41 @@
+# Pokemon TCG
 
-# Tablas para Pokemon TCG
+![ER-Model Image](./pokemonUML.drawio.svg)
 
+## Proposed entity relation model of the Pokemon TCG
 
-## Este diagrama de UML no considera que se guarde un juego a la mitad
+- **player**
 
-- player
+  The player possesses a username and credits in various forms such as coins, gems, etc. A player can have from zero to multiple decks.
 
-El jugador tiene un usuario, ademas de creditos en diferentes formas como monedas, gemas etc. Un jugador puede tener de 0 a multiples decks
+- **deck**
 
-- deck
-Cada deck tiene un nombre y puede tener diferentes combinaciones de cartas. Hay multiples decks
+  Each deck is identified by a name and may contain different combinations of cards. There are multiple decks.
 
-- cardsInDeck
-ya que la relacion de cartas a decks es de muchos a muchos (decks no son conjuntos propios de cartas), se creo esta tabla intermedia. Tiene una primary key compuesta del id del deck y del nombre de una carta.
+- **cardsInDeck**
 
-- attack
+  Given the many-to-many relationship between cards and decks (decks are not exclusive sets of cards), this intermediate table was created. It has a composite primary key consisting of the deck ID and the card name.
 
-Los ataques tienen puntos de daño, requerimientos de energia, id unicos y descripcion para aparecer en la carta. Tienen una relacion uno a muchos con los requerimientos de energia ya que tienen diferentes requisitos
+- **attack**
 
-- attack_energy_req
+  Attacks are characterized by damage points, energy requirements, unique IDs, and a description for display on the card. They have a one-to-many relationship with energy requirements as they have varying requirements.
 
-Tienen una primary key compuesta del ataque y un tipo, dan la cantidad de puntos de energia requeridos para el ataque y el tipo requerido
+- **attack_energy_req**
 
-- trainer_card
+  This table has a composite primary key of the attack and a type, providing the quantity of energy points required for the attack and the required type.
 
-Las cartas de entrenaador tiene su respectivo ID, la descripcion que aparece en la carta y una categoria, que puede ser objeto, objeto herramienta, una persona o un estadio.
+- **trainer_card**
 
-- energy_card
+  Trainer cards are identified by their respective ID, the description that appears on the card, and a category which can be an item, tool item, person, or stadium.
 
-las cartas de energia unicamente tienen id y tipo (agua, tierra, etc)
+- **energy_card**
 
-- type
+  Energy cards only possess an ID and type (e.g., water, ground, etc.).
 
-Son tipos que aparecen en el juego y son aplicables a diferentes cosas (pokemones y cartas de energia) por ejemplo, electrico, fuego, etc.
+- **type**
 
-- pokemon_card
+  These are types that appear in the game and are applicable to different entities (Pokémon and energy cards), such as electric, fire, etc.
 
-Esta tabla tiene mas atributos. Describe puntos de salud, la fase de evolucion (es decir en que nivel de evolucion esta el pokemon), un booleano que diga si es "basico", su debilidad, los ataques como llave foranea, el tipo como llave foranea y por un id.
+- **pokemon_card**
+
+  This table includes additional attributes. It describes health points, evolution stage (indicating the level of evolution of the Pokémon), a boolean value indicating whether it is "basic," weakness, attacks as foreign keys, type as a foreign key, and an ID.
