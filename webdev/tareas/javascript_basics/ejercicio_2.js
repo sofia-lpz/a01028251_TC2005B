@@ -21,4 +21,13 @@ function bubblesort (list) {
     return list;
 }
 
+console.log("Ejercicio 2");
+console.log("test 1: ", [5, 3, 8, 1, 2, 7, 4, 6]);
 console.log(bubblesort([5, 3, 8, 1, 2, 7, 4, 6]));
+
+console.log("test 2: ", [7,4,56,7,8,2,4,57,6]);
+console.log(bubblesort([7,4,56,7,8,2,4,57,6]));
+
+console.log("test 3: ", [9,2,4,6,2,0]);
+console.log(bubblesort([9,2,4,6,2,0]));
+

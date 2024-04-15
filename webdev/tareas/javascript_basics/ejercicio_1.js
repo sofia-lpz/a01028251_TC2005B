@@ -26,6 +26,14 @@ function firstNonRepeat (string) {
     return null;
 }
 
+console.log("Ejercicio 1");
+console.log("test 1: ", "abacddbec");
 console.log(firstNonRepeat("abacddbec"));
+
+console.log("test 2: ", "aaaaaaaaaaas");
+console.log(firstNonRepeat("aaaaaaaaaaas"));
+
+console.log("test 3: ", "aabbcc");
+console.log(firstNonRepeat("aabbcc"));
 
 
