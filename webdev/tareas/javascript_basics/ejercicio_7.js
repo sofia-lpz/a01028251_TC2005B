@@ -16,3 +16,5 @@ function factoriza(num){
 }
 
 console.log(factoriza(12));
+console.log(factoriza(15));
+console.log(factoriza(7));
