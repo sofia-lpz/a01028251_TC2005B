@@ -17,3 +17,5 @@ function quitaDuplicados (arr) {
 }
 
 console.log(quitaDuplicados([1, 0, 1, 1, 0, 0]));
+console.log(quitaDuplicados([1, 2, 3, 1, 2, 3]));
+console.log(quitaDuplicados([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]));
