@@ -19,9 +19,11 @@ function hackerSpeak (str) {
     let hackerStr = '';
     for (let i = 0; i < str.length; i++) {
         let char = str[i].toLowerCase();
-        hackerStr += dict[char] || char;
+        hackerStr += dict[char] || str[i];
     }
     return hackerStr;
 }
 
 console.log(hackerSpeak('Javascript es divertido'));
+console.log(hackerSpeak('Hola, soy sofia hacker etc etc'));
+console.log(hackerSpeak('Javascript es Aburrido'));
