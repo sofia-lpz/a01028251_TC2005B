@@ -2,6 +2,9 @@
 Crea una función que cambie una cadena de texto a 'Hacker Speak'
 Por ejemplo, para la cadena 'Javascript es divertido', 
 su hacker speak es: 'J4v45c1pt 35 d1v3rt1d0'.
+
+Sofia Moreno Lopez
+A01028251
 */
 
 function hackerSpeak (str) {
@@ -24,6 +27,7 @@ function hackerSpeak (str) {
     return hackerStr;
 }
 
+console.log("Ejercicio 6");
 console.log(hackerSpeak('Javascript es divertido'));
 console.log(hackerSpeak('Hola, soy sofia hacker etc etc'));
 console.log(hackerSpeak('Javascript es Aburrido'));

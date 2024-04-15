@@ -2,6 +2,9 @@
 Escribe una función que quite los elementos duplicados
 de un arreglo y regrese una lista con los elementos que quedan.
 Por ejemplo: quitaDuplicados([1, 0, 1, 1, 0, 0]) -> [1, 0]
+
+Sofia Moreno Lopez
+A01028251
 */
 
 function quitaDuplicados (arr) {
@@ -15,6 +18,8 @@ function quitaDuplicados (arr) {
     }
     return list;
 }
+
+console.log("Ejercicio 8");
 
 console.log(quitaDuplicados([1, 0, 1, 1, 0, 0]));
 console.log(quitaDuplicados([1, 2, 3, 1, 2, 3]));
