@@ -6,12 +6,16 @@ Sofia Moreno Lopez
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class pongManager : MonoBehaviour
 {
     [SerializeField] GameObject ball;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] float speed;
+
+    [SerializeField] TMP_Text scoreLeft;
+    [SerializeField] TMP_Text scoreRight;
 
     public int pointsLeft;
     public int pointsRight;
@@ -35,21 +39,32 @@ public class pongManager : MonoBehaviour
 
  void Update()
     {
-     if (Input.GetKeyDown(KeyCode.R) && ball != null){
-        Destroy(ball);
-        InitGame();
-        pointsLeft = 0;
-        pointsRight = 0;
+     if (Input.GetKeyDown(KeyCode.R)){
+       Reset();
      }
     }
+
+public void Reset(){
+    if (ball != null){
+        Destroy(ball);
+        pointsLeft = 0;
+        pointsRight = 0;
+        InitGame();
+    }
+}
+
+
+
 
     public
     void score (string side){
         if (side == "left"){
             pointsLeft++;
+            scoreLeft.text = pointsLeft.ToString();
         }
         else if (side == "right"){
             pointsRight++;
+            scoreRight.text = pointsRight.ToString();
         }
 
 InitGame();
