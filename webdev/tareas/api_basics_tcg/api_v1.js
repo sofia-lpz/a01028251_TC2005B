@@ -19,31 +19,59 @@ Crea una API
 
 */
 import express from 'express';
-const port = 3000;
+import fs from 'fs';
+const port = 4000;
 const app = express();
 
 app.use(express.json());
 
+const cartas = JSON.parse(fs.readFileSync('cartas.json').toString());
+
+
 app.get('/cartas', (req, res) => {
-    res.send('Hola mundo');
+        if (cartas.cartas.length === 0) {
+            res.status(404).send('No hay cartas');
+        }
+        res.send(cartas);
 });
 
-app.get('/cartas/:id', (req, res) => {
-    res.send('Hola mundo');
+app.get('/carta/:id', (req, res) => {
+    const id = req.params.id;
+    const carta = cartas.cartas.find(carta => carta.id === id);
+    if (!carta) {
+        res.status(404).send('No existe la carta');
+    }
+    res.send(carta);
 });
 
 app.post('/cartas', (req, res) => {
-    res.send('Hola mundo');
+    
 });	
 
-app.delete('/cartas/:id', (req, res) => {
-    res.send('Hola mundo');
+app.delete('/carta/:id', (req, res) => {
+    const id = req.params.id;
+    const carta = cartas.cartas.find(carta => carta.id === id);
+    if (!carta) {
+        res.status(404).send('No existe la carta');
+    } else {
+        cartas.cartas = cartas.cartas.filter(carta => carta.id !== id);
+        res.send(carta);
+    }
 });
 
 app.patch('/cartas/:id', (req, res) => {
-    res.send('Hola mundo');
+    const id = req.params.id;
+    const carta = cartas.cartas.find(carta => carta.id === id);
+    if (!carta) {
+        res.status(404).send('No existe la carta');
+    }
+    res.send(carta);
 });
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
+});
+
+app.get('/', (req, res) => {
+    res.send('Hola bienvenid@ a mi api<br> Para ver las cartas almacenadas ve a /cartas<br> Para ver una carta en especifico ve a /carta/id<br> Para agregar una carta ve a /cartas<br> Para borrar una carta ve a /carta/id<br> Para actualizar una carta ve a /cartas/id<br>');
 });
