@@ -1,0 +1,16 @@
+{
+    "cartas": [
+        {
+            "id": "carta1",
+            "energy_cost": 3
+        },
+        {
+            "id": "carta2",
+            "energy_cost": 2
+        },
+        {
+            "id":  "carta3",
+            "energy_cost": 4
+        }
+    ]
+}
