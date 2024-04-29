@@ -9,7 +9,9 @@ Crea una API
     
     Debe de recibir un json con las cartas nuevas que se van a agregar a la lista. 
     Verifica que las cartas tengan todos los atributos antes de agregarlas a la lista. 
-    Verifica que no exista la carta en la lista antes de intentar agregarla. En caso de que no se pueda agregar, envía un mensaje de que no se pudo agregar en un json, con el código de estado adecuado. En caso de que sí se haya agregado, regresa un mensaje en un json de que sí se agregó correctamente.
+    Verifica que no exista la carta en la lista antes de intentar agregarla. En caso de que no se pueda agregar, 
+    envía un mensaje de que no se pudo agregar en un json, con el código de estado adecuado. 
+    En caso de que sí se haya agregado, regresa un mensaje en un json de que sí se agregó correctamente.
     
     Debe de poder borrar una carta en base a su ID. 
     Verifica que la carta exista antes de borrarla de la lista.
