@@ -1,16 +1,28 @@
 {
-    "cartas": [
-        {
-            "id": "carta1",
-            "energy_cost": 3
-        },
-        {
-            "id": "carta2",
-            "energy_cost": 2
-        },
-        {
-            "id":  "carta3",
-            "energy_cost": 4
-        }
-    ]
+  "cartas": [
+    {
+      "id": "carta1",
+      "name": "perro",
+      "element": "fuego",
+      "energy_cost": 3
+    },
+    {
+      "id": "carta2",
+      "name": "gato",
+      "element": "agua",
+      "energy_cost": 2
+    },
+    {
+      "id": "carta3",
+      "name": "pajaro",
+      "element": "aire",
+      "energy_cost": 4
+    },
+    {
+      "id": "carta4",
+      "name": "pez",
+      "element": "agua",
+      "energy_cost": 3
+    }
+  ]
 }
