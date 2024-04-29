@@ -15,7 +15,9 @@ Crea una API
     Verifica que la carta exista antes de borrarla de la lista.
     
     Debe de poder actualizar una carta en base a su ID.
-    Recibe los campos que se van a actualizar en un json, y solo actualiza los campos que vienen en el json. Verifica que la carta exista antes de intentar actualizarla.
+    Recibe los campos que se van a actualizar en un json, 
+    y solo actualiza los campos que vienen en el json. 
+    Verifica que la carta exista antes de intentar actualizarla.
 
 */
 import express from 'express';
@@ -70,8 +72,25 @@ app.delete('/cartas/:id', (req, res) => {
     fs.writeFileSync('cartas.json', JSON.stringify(cartas, null, 2));
 });
 
-app.put('/cartas/:id', (req, res) => {
-
+app.patch('/cartas/:id', (req, res) => {
+    const id = req.params.id;
+    const carta = cartas.cartas.find(carta => carta.id === id);
+    if (!carta) {
+        res.status(404).send({ message: 'No existe la carta' });
+    } else {
+        const { name, element, energy_cost } = req.body;
+        if (name) {
+            carta.name = name;
+        }
+        if (element) {
+            carta.element = element;
+        }
+        if (energy_cost !== undefined) {
+            carta.energy_cost = energy_cost;
+        }
+        fs.writeFileSync('cartas.json', JSON.stringify(cartas, null, 2));
+        res.status(200).send('Carta actualizada correctamente');
+    }
 });
 
 app.listen(port, () => {
@@ -81,3 +100,4 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
     res.send('Hola bienvenid@ a mi api<br> Para ver las cartas almacenadas ve a /cartas<br> Para ver una carta en especifico ve a /carta/id<br> Para agregar una carta ve a /cartas<br> Para borrar una carta ve a /carta/id<br> Para actualizar una carta ve a /cartas/id<br>');
 });
+
