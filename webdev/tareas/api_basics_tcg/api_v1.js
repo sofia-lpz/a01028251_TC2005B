@@ -3,7 +3,7 @@ API v1
 */
 import express from 'express';
 import fs from 'fs';
-const port = 4000;
+const port = 3000;
 const app = express();
 
 app.use(express.json());
