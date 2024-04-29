@@ -35,7 +35,7 @@ app.get('/cartas', (req, res) => {
         res.send(cartas);
 });
 
-app.get('/carta/:id', (req, res) => {
+app.get('/cartas/:id', (req, res) => {
     const id = req.params.id;
     const carta = cartas.cartas.find(carta => carta.id === id);
     if (!carta) {
@@ -45,31 +45,37 @@ app.get('/carta/:id', (req, res) => {
 });
 
 app.post('/cartas', (req, res) => {
-    
-});	
+    const nuevaCarta = req.body;
 
-app.delete('/carta/:id', (req, res) => {
+    if (!nuevaCarta.id || !nuevaCarta.name || !nuevaCarta.element || nuevaCarta.energy_cost === undefined) {
+        res.status(400).send('Datos incompletos');
+    } else if (cartas.cartas.find(card => card.id === nuevaCarta.id)) {
+        res.status(400).send('La carta ya existe');
+    } else {
+        cartas.cartas.push(nuevaCarta);
+        fs.writeFileSync('cartas.json', JSON.stringify(cartas, null, 2));
+        res.status(200).send('Carta creada correctamente');
+    }
+});
+
+app.delete('/cartas/:id', (req, res) => {
     const id = req.params.id;
     const carta = cartas.cartas.find(carta => carta.id === id);
     if (!carta) {
         res.status(404).send('No existe la carta');
     } else {
         cartas.cartas = cartas.cartas.filter(carta => carta.id !== id);
-        res.send(carta);
+        res.status(200).send(carta);
     }
+    fs.writeFileSync('cartas.json', JSON.stringify(cartas, null, 2));
 });
 
-app.patch('/cartas/:id', (req, res) => {
-    const id = req.params.id;
-    const carta = cartas.cartas.find(carta => carta.id === id);
-    if (!carta) {
-        res.status(404).send('No existe la carta');
-    }
-    res.send(carta);
+app.put('/cartas/:id', (req, res) => {
+
 });
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Server listening on port ${port}`);
 });
 
 app.get('/', (req, res) => {
