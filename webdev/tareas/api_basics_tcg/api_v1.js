@@ -58,7 +58,7 @@ app.delete('/cartas/:id', (req, res) => {
     fs.writeFileSync('cartas.json', JSON.stringify(cartas, null, 2));
 });
 
-app.patch('/cartas/:id', (req, res) => {
+app.put('/cartas/:id', (req, res) => {
     const id = req.params.id;
     const carta = cartas.cartas.find(carta => carta.id === id);
     if (!carta) {
