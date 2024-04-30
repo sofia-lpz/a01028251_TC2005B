@@ -3,7 +3,7 @@ API v1
 */
 import express from 'express';
 import fs from 'fs';
-const port = 3000;
+const port = 4000;
 const app = express();
 
 app.use(express.json());
@@ -28,18 +28,23 @@ app.get('/cartas/:id', (req, res) => {
 });
 
 app.post('/cartas', (req, res) => {
-    const nuevaCarta = req.body;
+    const nuevasCartas = req.body;
 
-    if (!nuevaCarta.id || !nuevaCarta.name || !nuevaCarta.element || nuevaCarta.energy_cost === undefined) {
-        res.status(400).send('Datos incompletos');
-    } else if (cartas.cartas.find(card => card.id === nuevaCarta.id)) {
-        res.status(400).send('La carta ya existe');
-    } else {
+    for(let nuevaCarta of nuevasCartas) {
+        if (!nuevaCarta.id || !nuevaCarta.name || !nuevaCarta.element || nuevaCarta.energy_cost === undefined) {
+            return res.status(400).send('Faltan datos');
+        }
+        for(let carta of cartas.cartas) {
+            if(carta.id === nuevaCarta.id) {
+                return res.status(400).send("La carta ya existe");
+            }
+        }
         cartas.cartas.push(nuevaCarta);
-        fs.writeFileSync('cartas.json', JSON.stringify(cartas, null, 2));
-        res.status(200).send('Carta creada correctamente');
     }
+    fs.writeFileSync('cartas.json', JSON.stringify(cartas, null, 2));
+    return res.status(200).send("Cartas agregadas correctamente");
 });
+
 
 app.delete('/cartas/:id', (req, res) => {
     const id = req.params.id;
