@@ -23,6 +23,24 @@
       "name": "pez",
       "element": "agua",
       "energy_cost": 3
+    },
+    {
+      "id": "",
+      "name": "",
+      "element": "",
+      "energy_cost": 10
+    },
+    {
+      "id": "1234567",
+      "name": "dhskjkd",
+      "element": "sdjjfs",
+      "energy_cost": 10
+    },
+    {
+      "id": "cola",
+      "name": "dhskjkd",
+      "element": "sdjjfs",
+      "energy_cost": 10
     }
   ]
 }

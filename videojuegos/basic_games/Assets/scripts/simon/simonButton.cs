@@ -11,16 +11,19 @@ using UnityEngine.UI;
 
 public class simonButton : MonoBehaviour
 {
-
     Color originalColor;
     [SerializeField] float delay = 0.5f;
+    AudioSource audio;
 
-    void Start()
+    public void Init(int index)
     {
         originalColor = GetComponent<Image>().color;
+        audio = GetComponent<AudioSource>();
+        audio.clip = Resources.Load<AudioClip>("audio/buzzer");
     }
 
     public void highlight(){
+        audio.Play();
         StartCoroutine(ChangeColor());
     }
 
