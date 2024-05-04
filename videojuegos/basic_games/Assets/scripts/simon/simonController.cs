@@ -14,12 +14,14 @@ public class simonController : MonoBehaviour
     [SerializeField] List<simonButton> buttons;
     [SerializeField] List<int> sequence;
     [SerializeField] List<int> playerSequence;
-    [SerializeField] float delay;
+    [SerializeField] int delay = 1;
     [SerializeField] int level;
+    [SerializeField] int completedSequences = 0;
     [SerializeField] bool playerTurn = false;
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform buttonParent;
-    [SerializeField] int numButtons;
+    [SerializeField] int initialButtons = 4;
+    [SerializeField] int currentSequenceIndex = 0;
     List<Color> colors = new List<Color>
 {
     Color.red,
@@ -33,6 +35,12 @@ public class simonController : MonoBehaviour
 void Start()
 {
     // create the buttons
+    createButtons(initialButtons);
+    AddtoSequence();
+    StartCoroutine(PlaySequence());
+}
+
+void createButtons(int numButtons){
     for (int i = 0; i < numButtons; i++)
     {
         GameObject button = Instantiate(buttonPrefab, buttonParent);
@@ -53,12 +61,7 @@ void Start()
 
         button.GetComponent<Button>().onClick.AddListener(() => ButtonPressed(buttonIndex));
     }
-
-    AddtoSequence();
-    StartCoroutine(PlaySequence());
 }
-
-int currentSequenceIndex = 0;
 
 void ButtonPressed(int player_button_index)
 {
@@ -73,9 +76,18 @@ void ButtonPressed(int player_button_index)
             if (currentSequenceIndex == sequence.Count)
             {
                 Debug.Log("Sequence completed");
+                
+                currentSequenceIndex = 0;
+                completedSequences++;
+
+                if (completedSequences == 2)
+                {
+                    Debug.Log("Level completed");
+                    level++;
+                }
+                
                 AddtoSequence();
                 StartCoroutine(PlaySequence());
-                currentSequenceIndex = 0;
             }
         }
         else
@@ -89,18 +101,18 @@ void ButtonPressed(int player_button_index)
 
 void AddtoSequence()
 {
-    sequence.Add(Random.Range(0, numButtons));
+    sequence.Add(Random.Range(0, buttons.Count));
 }
 
 IEnumerator PlaySequence()
 {
-    yield return new WaitForSeconds(1);
+    yield return new WaitForSeconds(delay);
     playerTurn = false;
     foreach (int index in sequence)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(delay);
         buttons[index].Highlight();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(delay);
     }
     playerTurn = true;
 }
