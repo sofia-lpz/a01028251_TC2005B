@@ -1,4 +1,6 @@
 # Simon Says
+## Sofia Moreno
+## 3/5/2024
 
 ## Descripción
 
