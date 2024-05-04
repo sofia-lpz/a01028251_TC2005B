@@ -13,6 +13,7 @@ public class simonController : MonoBehaviour
 {
     [SerializeField] List<simonButton> buttons;
     [SerializeField] List<int> sequence;
+    [SerializeField] List<int> playerSequence;
     [SerializeField] float delay;
     [SerializeField] int level;
     [SerializeField] bool playerTurn = false;
@@ -57,22 +58,33 @@ void Start()
     StartCoroutine(PlaySequence());
 }
 
+int currentSequenceIndex = 0;
+
 void ButtonPressed(int player_button_index)
 {
-    if (playerTurn){
+    if (playerTurn)
+    {
+        buttons[player_button_index].HighlightPlayer();
+        if (player_button_index == sequence[currentSequenceIndex])
+        {
+            Debug.Log("Correct button");
+            currentSequenceIndex++;
 
-for (int i = 0; i < numButtons; i++)
-{
-
-if (player_button_index == sequence[i]){
-    Debug.Log("Correct button");
-}
-else
-{
-    Debug.Log("Wrong button");
-}
-}
-}
+            if (currentSequenceIndex == sequence.Count)
+            {
+                Debug.Log("Sequence completed");
+                AddtoSequence();
+                StartCoroutine(PlaySequence());
+                currentSequenceIndex = 0;
+            }
+        }
+        else
+        {
+            Debug.Log("Game Over!");
+            playerTurn = false;
+            return;
+        }
+    }
 }
 
 void AddtoSequence()
@@ -82,11 +94,13 @@ void AddtoSequence()
 
 IEnumerator PlaySequence()
 {
+    yield return new WaitForSeconds(1);
     playerTurn = false;
     foreach (int index in sequence)
     {
+        yield return new WaitForSeconds(1);
         buttons[index].Highlight();
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(1);
     }
     playerTurn = true;
 }

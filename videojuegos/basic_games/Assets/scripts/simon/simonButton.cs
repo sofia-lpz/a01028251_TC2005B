@@ -27,12 +27,24 @@ public class simonButton : MonoBehaviour
 
     public void Highlight()
     {
-        StartCoroutine(HighlightCoroutine());
+        StartCoroutine(HighlightCoroutine(false));
     }
 
-    IEnumerator HighlightCoroutine()
+    public void HighlightPlayer()
     {
-        GetComponent<Image>().color = Color.black;
+        StartCoroutine(HighlightCoroutine(true));
+    }
+
+    IEnumerator HighlightCoroutine(bool player)
+    {
+        if (player)
+        {
+            GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            GetComponent<Image>().color = Color.black;
+        }
         audioSource.Play();
         yield return new WaitForSeconds(delay);
         GetComponent<Image>().color = originalColor;
