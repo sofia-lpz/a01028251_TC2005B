@@ -12,28 +12,29 @@ using UnityEngine.UI;
 public class simonButton : MonoBehaviour
 {
     Color originalColor;
-    [SerializeField] float delay = 0.5f;
-    AudioSource audio;
+    [SerializeField] float delay = 1f;
+    [SerializeField] int index;
+    AudioSource audioSource;
 
-    public void Init(int index)
+
+    public void Init(int i)
     {
         originalColor = GetComponent<Image>().color;
-        audio = GetComponent<AudioSource>();
-        audio.clip = Resources.Load<AudioClip>("audio/buzzer");
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = Resources.Load<AudioClip>("audio/buzzer");
+        index = i;
     }
 
-    public void highlight(){
-        audio.Play();
-        StartCoroutine(ChangeColor());
+    public void Highlight()
+    {
+        StartCoroutine(HighlightCoroutine());
     }
 
-    IEnumerator ChangeColor(){
-        GetComponent<Image>().color = Color.white;
-        // wait a moment before changing back
+    IEnumerator HighlightCoroutine()
+    {
+        GetComponent<Image>().color = Color.black;
+        audioSource.Play();
         yield return new WaitForSeconds(delay);
-
         GetComponent<Image>().color = originalColor;
     }
-
-   
 }
