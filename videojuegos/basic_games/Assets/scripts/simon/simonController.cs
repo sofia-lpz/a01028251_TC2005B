@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class simonController : MonoBehaviour
@@ -19,9 +20,10 @@ public class simonController : MonoBehaviour
     [SerializeField] bool playerTurn = false;
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform buttonParent;
-    [SerializeField] int initialButtons = 4;
+    [SerializeField] int initialButtons = 9;
     [SerializeField] int currentSequenceIndex = 0;
-    [SerializeField] float delay = 1.5f;
+    [SerializeField] float delay = 1.4f;
+    [SerializeField] TMP_Text scoreText;
     List<Color> colors = new List<Color>
 {
     Color.red,
@@ -81,6 +83,8 @@ void ButtonPressed(int player_button_index)
                 completedSequences++;
 
                 delay *= 0.9f;
+                
+                scoreText.text = "score: " + completedSequences.ToString();
                 
                 AddtoSequence();
                 StartCoroutine(PlaySequence());
