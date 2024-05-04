@@ -15,13 +15,30 @@ public class simonButton : MonoBehaviour
     [SerializeField] float delay = 1f;
     [SerializeField] int index;
     AudioSource audioSource;
-
+    List<string> notes = new List<string>
+    {
+        "C4",
+        "D4",
+        "E4",
+        "F4",
+        "G4",
+        "A4",
+        "B4",
+        "C5",
+        "D5",
+        "E5",
+        "F5",
+        "G5",
+        "A5",
+        "B5",
+        "C6",
+    };
 
     public void Init(int i)
     {
         originalColor = GetComponent<Image>().color;
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = Resources.Load<AudioClip>("audio/buzzer");
+        audioSource.clip = Resources.Load<AudioClip>("audio/piano-mp3/" + notes[i]);
         index = i;
     }
 

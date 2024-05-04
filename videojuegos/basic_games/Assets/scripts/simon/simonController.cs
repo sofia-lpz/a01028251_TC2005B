@@ -15,7 +15,7 @@ public class simonController : MonoBehaviour
     [SerializeField] List<simonButton> buttons;
     [SerializeField] List<int> sequence;
     [SerializeField] List<int> playerSequence;
-    [SerializeField] int level;
+    [SerializeField] int level = 1;
     [SerializeField] int completedSequences = 0;
     [SerializeField] bool playerTurn = false;
     [SerializeField] GameObject buttonPrefab;
@@ -83,8 +83,11 @@ void ButtonPressed(int player_button_index)
                 completedSequences++;
 
                 delay *= 0.9f;
-                
                 scoreText.text = "score: " + completedSequences.ToString();
+                if (completedSequences == 3)
+                {
+                    level++;
+                }
                 
                 AddtoSequence();
                 StartCoroutine(PlaySequence());
