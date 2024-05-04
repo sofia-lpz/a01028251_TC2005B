@@ -14,7 +14,7 @@ public class simonController : MonoBehaviour
     [SerializeField] List<simonButton> buttons;
     [SerializeField] List<int> sequence;
     [SerializeField] List<int> playerSequence;
-    [SerializeField] int delay = 1;
+    [SerializeField] int delay = 10;
     [SerializeField] int level;
     [SerializeField] int completedSequences = 0;
     [SerializeField] bool playerTurn = false;
@@ -79,12 +79,6 @@ void ButtonPressed(int player_button_index)
                 
                 currentSequenceIndex = 0;
                 completedSequences++;
-
-                if (completedSequences == 2)
-                {
-                    Debug.Log("Level completed");
-                    level++;
-                }
                 
                 AddtoSequence();
                 StartCoroutine(PlaySequence());
@@ -106,13 +100,14 @@ void AddtoSequence()
 
 IEnumerator PlaySequence()
 {
-    yield return new WaitForSeconds(delay);
+    yield return new WaitForSeconds(1);
     playerTurn = false;
     foreach (int index in sequence)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(1);
         buttons[index].Highlight();
-        yield return new WaitForSeconds(delay);
+        
+        yield return new WaitForSeconds(1);
     }
     playerTurn = true;
 }
