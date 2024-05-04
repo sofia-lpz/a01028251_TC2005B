@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 815805385}
   - component: {fileID: 815805384}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 99'
+  m_text: 'score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -675,6 +675,7 @@ MonoBehaviour:
   initialButtons: 9
   currentSequenceIndex: 0
   delay: 1.5
+  scoreText: {fileID: 815805384}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

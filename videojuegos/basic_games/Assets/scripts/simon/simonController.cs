@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class simonController : MonoBehaviour
@@ -82,7 +83,7 @@ void ButtonPressed(int player_button_index)
                 currentSequenceIndex = 0;
                 completedSequences++;
 
-                delay *= 0.9f;
+                delay *= 0.8f;
                 scoreText.text = "score: " + completedSequences.ToString();
                 if (completedSequences == 3)
                 {
@@ -96,7 +97,7 @@ void ButtonPressed(int player_button_index)
         else
         {
             Debug.Log("Game Over!");
-            playerTurn = false;
+            SceneManager.LoadScene("GameOverSceneSimon");
             return;
         }
     }
@@ -112,13 +113,21 @@ IEnumerator PlaySequence()
     
     yield return new WaitForSeconds(1);
     playerTurn = false;
+    for (int i = 0; i < buttons.Count; i++)
+    {
+        buttons[i].Dim();
+    }
     foreach (int index in sequence)
     {
         yield return new WaitForSeconds(delay);
         buttons[index].Highlight();
-        
     }
     yield return new WaitForSeconds(1);
+    
+    for (int i = 0; i < buttons.Count; i++)
+    {
+        buttons[i].Light();
+    }
     playerTurn = true;
 }
 

@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class simonButton : MonoBehaviour
 {
     Color originalColor;
-    [SerializeField] float delay = 1f;
+    [SerializeField] float delay = 0.3f;
     [SerializeField] int index;
     AudioSource audioSource;
     List<string> notes = new List<string>
@@ -42,6 +42,16 @@ public class simonButton : MonoBehaviour
         index = i;
     }
 
+    public void Dim()
+    {
+        GetComponent<Image>().color = Color.Lerp(originalColor, Color.black, 0.7f);
+    }
+
+    public void Light()
+    {
+        GetComponent<Image>().color = originalColor;
+    }
+
     public void Highlight()
     {
         StartCoroutine(HighlightCoroutine(false));
@@ -54,16 +64,18 @@ public class simonButton : MonoBehaviour
 
     IEnumerator HighlightCoroutine(bool player)
     {
+        audioSource.Play();
         if (player)
         {
             GetComponent<Image>().color = Color.Lerp(originalColor, Color.black, 0.7f);
+            yield return new WaitForSeconds(delay);
+            GetComponent<Image>().color = originalColor;
         }
         else
         {
-            GetComponent<Image>().color = Color.Lerp(originalColor, Color.white, 0.9f);
+            GetComponent<Image>().color = originalColor;
+            yield return new WaitForSeconds(delay);
+            GetComponent<Image>().color = Color.Lerp(originalColor, Color.black, 0.7f);
         }
-        audioSource.Play();
-        yield return new WaitForSeconds(delay);
-        GetComponent<Image>().color = originalColor;
     }
 }
