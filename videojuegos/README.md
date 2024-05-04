@@ -18,6 +18,3 @@ A medida que se avanza en los niveles, la secuencia se vuelve más larga y compl
 
 - La secuencia se repite cada vez mas rapido por cada secuencia repetida correctamente.
 - Despues de cuatro secuencias correctamente repetidas, subes de nivel y se empiezan a agregar dos botones por secuencia
-
-### Nota
-Este juego contiene escenas no usadas de Pong
