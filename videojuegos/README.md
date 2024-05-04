@@ -17,4 +17,4 @@ A medida que se avanza en los niveles, la secuencia se vuelve más larga y compl
 ## Extras
 
 - La secuencia se repite cada vez mas rapido por cada secuencia repetida correctamente.
-- Despues de cuatro secuencias correctamente repetidas, subes de nivel y se empiezan a agregar dos botones por secuencia
+- Despues de tres secuencias correctamente repetidas, subes de nivel (solo hay nivel 0 y nivel 1) y se empiezan a agregar dos botones por secuencia
