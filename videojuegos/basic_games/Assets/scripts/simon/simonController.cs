@@ -13,6 +13,7 @@ using UnityEngine.SceneManagement;
 
 public class simonController : MonoBehaviour
 {
+    AudioSource game_over;
     [SerializeField] List<simonButton> buttons;
     [SerializeField] List<int> sequence;
     [SerializeField] List<int> playerSequence;
@@ -97,10 +98,21 @@ void ButtonPressed(int player_button_index)
         else
         {
             Debug.Log("Game Over!");
-            SceneManager.LoadScene("GameOverSceneSimon");
+            StartCoroutine(gameover());
             return;
         }
     }
+}
+
+IEnumerator gameover()
+{
+    yield return new WaitForSeconds(2);
+    game_over = GetComponent<AudioSource>();
+    game_over.clip = Resources.Load<AudioClip>("audio/game_over");
+        
+    game_over.Play();
+    yield return new WaitForSeconds(1);
+    SceneManager.LoadScene("GameOverSceneSimon");
 }
 
 void AddtoSequence()

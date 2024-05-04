@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/pong.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/GameOverSceneSimon.unity
+    guid: 025f899f60901fc42bde0772d7641357
+  - enabled: 1
+    path: Assets/Scenes/simon.unity
+    guid: 0c3aae7146acbc54ba69c35525b3f55e
   m_configObjects: {}
