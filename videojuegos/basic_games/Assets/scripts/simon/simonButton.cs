@@ -39,11 +39,11 @@ public class simonButton : MonoBehaviour
     {
         if (player)
         {
-            GetComponent<Image>().color = Color.white;
+            GetComponent<Image>().color = Color.Lerp(originalColor, Color.black, 0.7f);
         }
         else
         {
-            GetComponent<Image>().color = Color.black;
+            GetComponent<Image>().color = Color.Lerp(originalColor, Color.white, 0.9f);
         }
         audioSource.Play();
         yield return new WaitForSeconds(delay);

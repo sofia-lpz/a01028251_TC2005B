@@ -14,7 +14,6 @@ public class simonController : MonoBehaviour
     [SerializeField] List<simonButton> buttons;
     [SerializeField] List<int> sequence;
     [SerializeField] List<int> playerSequence;
-    [SerializeField] int delay = 10;
     [SerializeField] int level;
     [SerializeField] int completedSequences = 0;
     [SerializeField] bool playerTurn = false;
@@ -22,6 +21,7 @@ public class simonController : MonoBehaviour
     [SerializeField] Transform buttonParent;
     [SerializeField] int initialButtons = 4;
     [SerializeField] int currentSequenceIndex = 0;
+    [SerializeField] float delay = 1.5f;
     List<Color> colors = new List<Color>
 {
     Color.red,
@@ -79,6 +79,8 @@ void ButtonPressed(int player_button_index)
                 
                 currentSequenceIndex = 0;
                 completedSequences++;
+
+                delay *= 0.9f;
                 
                 AddtoSequence();
                 StartCoroutine(PlaySequence());
@@ -100,15 +102,16 @@ void AddtoSequence()
 
 IEnumerator PlaySequence()
 {
+    
     yield return new WaitForSeconds(1);
     playerTurn = false;
     foreach (int index in sequence)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(delay);
         buttons[index].Highlight();
         
-        yield return new WaitForSeconds(1);
     }
+    yield return new WaitForSeconds(1);
     playerTurn = true;
 }
 
