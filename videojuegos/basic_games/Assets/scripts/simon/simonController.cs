@@ -116,6 +116,7 @@ void ButtonPressed(int player_button_index)
 
 IEnumerator gameover()
 {
+    stateNameController.scoreGameOver = completedSequences.ToString();
     yield return new WaitForSeconds(2);
     game_over = GetComponent<AudioSource>();
     game_over.clip = Resources.Load<AudioClip>("audio/game_over");
