@@ -26,6 +26,7 @@ public class simonController : MonoBehaviour
     [SerializeField] int currentSequenceIndex = 0;
     [SerializeField] float delay = 1.4f;
     [SerializeField] TMP_Text scoreText;
+    [SerializeField] TMP_Text levelText;
     List<Color> colors = new List<Color>
 {
     Color.red,
@@ -89,8 +90,17 @@ void ButtonPressed(int player_button_index)
                 if (completedSequences == 3)
                 {
                     level++;
-                }
+                    Debug.Log("Level up!");
                 
+                }
+            
+                
+                levelText.text = "level: " + level.ToString();
+
+                if (level>=1)
+                {
+                    AddtoSequence();
+                }
                 AddtoSequence();
                 StartCoroutine(PlaySequence());
             }
