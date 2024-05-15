@@ -1,4 +1,8 @@
 import express from 'express';
+import fs from 'fs';
+
+
+
 const port = 3000;
 const app = express();
 
@@ -11,6 +15,17 @@ app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
 
-app.get('/', (req, res) => {
-    res.send('Hola');
-});
+app.get('/', (req, res)=>
+    {
+        fs.readFile('./public/html_cheat_sheet.html', 'utf8', 
+        (err, html) => {
+            if(err)
+            {
+                res.status(500).send('There was an error: ' + err)
+                return 
+            }
+            
+            res.send(html)
+            console.log("Page sent")
+        })
+    })
