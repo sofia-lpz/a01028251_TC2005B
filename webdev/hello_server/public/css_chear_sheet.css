@@ -1,0 +1,17 @@
+h1{
+    color: #FF0000;
+    font-family: 'Franklin Gothic Medium';
+    text-align: center;
+}
+
+html{
+    background-color: #ffd500;
+}
+
+body{
+    background-color: #ffffff;
+}
+
+*{
+    border: 2px solid black;
+}
