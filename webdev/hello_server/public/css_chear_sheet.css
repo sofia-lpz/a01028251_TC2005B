@@ -1,17 +1,16 @@
-h1{
-    color: #FF0000;
-    font-family: 'Franklin Gothic Medium';
-    text-align: center;
-}
-
-html{
-    background-color: #ffd500;
-}
-
-body{
+body {
+    font-family: Arial, sans-serif;
     background-color: #ffffff;
 }
 
-*{
-    border: 2px solid black;
+h1 {
+    color: #ff006a;
+    text-align: center;
+}
+
+
+.ejemplo {
+    background-color: #aeaeae;
+    padding: 10px;
+    margin: 10px 0;
 }
