@@ -2,7 +2,7 @@ import express from 'express';
 import fs from 'fs';
 
 
-const port = 3000;
+const port = 4000;
 const app = express();
 
 
@@ -15,7 +15,7 @@ app.listen(port, () => {
 
 app.get('/', (req, res)=>
     {
-        fs.readFile('./public/html_cheat_sheet.html', 'utf8', 
+        fs.readFile('./public/css_cheat_sheet.html', 'utf8', 
         (err, html) => {
             if(err)
             {
