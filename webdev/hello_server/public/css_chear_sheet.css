@@ -1,15 +1,159 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    line-height: 1.6;
+    padding: 20px;
+    background-color:  #385170;;
+    
+}
+
+html {
+    padding-top: 60px;
+    padding: 50px;
+    background-color: #142d4c;
 }
 
 h1 {
-    color: #ff006a;
     text-align: center;
+    margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ececec; 
+    z-index: 1000;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+div {
+    background-color: #9fd3c7;
+    border-radius: 15px;
 }
 
 .ejemplo {
-    background-color: #aeaeae;
     padding: 10px;
-    margin: 10px 0;
+    margin-bottom: 20px;
+    border: 2px solid #333;
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 0%;
+}
+
+.ejemplo_border {
+    border: 2px solid red;
+    border-radius: 0%;
+}
+
+.ejemplo_border_sides {
+    border-left: 5px solid green;
+    border-right: 5px solid blue;
+    border-top: 5px solid orange;
+    border-bottom: 5px solid purple;
+    border-radius: 0%;
+}
+
+.ejemplo_border_radius {
+    border-radius: 15px;
+    border: 2px solid #333;
+}
+
+.ejemplo_background_image {
+    background-image: url('./gato.png');
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    border-radius: 0%;
+}
+
+.ejemplo_padding {
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 0%;
+}
+
+.ejemplo_overflow {
+    width: 150px;
+    height: 50px;
+    overflow: scroll;
+    border: 2px solid #333;
+    border-radius: 0%;
+}
+
+.ejemplo_display {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: lightcoral;
+    border-radius: 0%;
+}
+
+.ejemplo_position {
+    position: relative;
+    top: 10px;
+    left: 20px;
+    border: 2px solid #333;
+    border-radius: 0%;
+}
+
+.ejemplo_filter {
+    filter: grayscale(100%);
+    border: 2px solid #ff0000;
+    border-radius: 0%;
+}
+
+.ejemplo_color {
+    color: blue;
+    border: 2px solid #333;
+    border-radius: 0%;
+}
+
+.ejemplo_font {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    border: 2px solid #333;
+    border-radius: 0%;
+}
+
+.ejemplo_font_family {
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid #333;
+    border-radius: 0%;
+}
+
+.ejemplo_fontstyle {
+    font-style: italic;
+    border: 2px solid #333;
+    border-radius: 0%;
+}
+
+.ejemplo_fontweight {
+    font-weight: bold;
+    border: 2px solid #333;
+    border-radius: 0%;
+}
+
+.ejemplo_WH {
+    width: 200px;
+    height: 100px;
+    border: 2px solid #333;
+    border-radius: 0%;
+}
+
+.ejemplo_list ul {
+    list-style-type: circle;
+}
+
+.ejemplo_margin {
+    margin: 20px;
+    border: 2px solid #333;
+    border-radius: 0%;
 }

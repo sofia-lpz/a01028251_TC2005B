@@ -15,7 +15,7 @@ app.listen(port, () => {
 
 app.get('/', (req, res)=>
     {
-        fs.readFile('./public/css_cheat_sheet.html', 'utf8', 
+        fs.readFile('./public/html_cheat_sheet.html', 'utf8', 
         (err, html) => {
             if(err)
             {
@@ -27,3 +27,19 @@ app.get('/', (req, res)=>
             console.log("Page sent")
         })
     })
+
+    app.get('/css', (req, res)=>
+    {
+        fs.readFile('./public/css_cheat_sheet.html', 'utf8', 
+        (err, html) => {
+            if(err)
+            {
+                res.status(500).send('There was an error: ' + err)
+                return 
+            }
+            
+            res.send(html)
+            console.log("Page sent")
+        })
+    }
+    )
