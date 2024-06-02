@@ -12,15 +12,11 @@
 
   Each deck is identified by a name and may contain different combinations of cards. There are multiple decks.
 
-- **cardsInDeck**
-
-  Given the many-to-many relationship between cards and decks (decks are not exclusive sets of cards), this intermediate table was created. It has a composite primary key consisting of the deck ID and the card name.
-
 - **attack**
 
   Attacks are characterized by damage points, energy requirements, unique IDs, and a description for display on the card. They have a one-to-many relationship with energy requirements as they have varying requirements.
 
-- **attack_energy_req**
+- **attack_energy_cost**
 
   This table has a composite primary key of the attack and a type, providing the quantity of energy points required for the attack and the required type.
 
