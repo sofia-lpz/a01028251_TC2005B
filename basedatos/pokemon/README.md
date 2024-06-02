@@ -1,6 +1,6 @@
 # Pokemon TCG
 
-![ER-Model Image](./pokemonUML.drawio.svg)
+![ER-Model Image](./pokemonUMLfinal.png)
 
 ## Proposed entity relation model of the Pokemon TCG
 
