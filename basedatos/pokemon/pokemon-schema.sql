@@ -19,56 +19,55 @@ CREATE TABLE player (
 
 CREATE TABLE deck (
     deck_id INT AUTO_INCREMENT,
-    deck_name VARCHAR(50) NOT NULL,
     username VARCHAR(50) NOT NULL,
     PRIMARY KEY (deck_id),
     CONSTRAINT fk_deck_player FOREIGN KEY (username) REFERENCES player(username)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE pokemon_card (
-    pokemon_id INT AUTO_INCREMENT,
+    card_id INT AUTO_INCREMENT,
     pokemonCardName VARCHAR(50) NOT NULL,
     ps SMALLINT NOT NULL,
-    evolution_stage VARCHAR(50),
     is_basic BOOLEAN NOT NULL,
     weakness VARCHAR(50),
     type_id INT,
-    PRIMARY KEY (pokemon_id),
+    deck_id INT,
+    PRIMARY KEY (card_id),
+    CONSTRAINT fk_pokemon_deck FOREIGN KEY (deck_id) REFERENCES deck(deck_id),
     CONSTRAINT fk_pokemon_type FOREIGN KEY (type_id) REFERENCES type(type_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE cardsInDeck (
-    deck_id INT,
-    pokemon_id INT,
-    PRIMARY KEY (deck_id, pokemon_id),
-    CONSTRAINT fk_card_deck FOREIGN KEY (deck_id) REFERENCES deck(deck_id),
-    CONSTRAINT fk_pokemon_deck FOREIGN KEY (pokemon_id) REFERENCES pokemon_card(pokemon_id)
-) ENGINE=InnoDB;
 
 CREATE TABLE trainer_card (
-    trainer_id INT AUTO_INCREMENT,
-    description VARCHAR(50) NOT NULL,
+    card_id INT AUTO_INCREMENT,
+    trainerCardName VARCHAR(50) NOT NULL,
+    description VARCHAR(100) NOT NULL,
     category ENUM('item', 'tool item', 'person', 'stadium') NOT NULL,
-    PRIMARY KEY (trainer_id)
+    deck_id INT,
+    PRIMARY KEY (card_id),
+    CONSTRAINT fk_trainer_deck FOREIGN KEY (deck_id) REFERENCES deck(deck_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE energy_card (
     energy_id INT AUTO_INCREMENT,
+    energyCardName VARCHAR(50) NOT NULL,
     type_id INT,
+    deck_id INT,
     PRIMARY KEY (energy_id),
-    CONSTRAINT fk_energycard_type FOREIGN KEY (type_id) REFERENCES type(type_id)
+    CONSTRAINT fk_energycard_type FOREIGN KEY (type_id) REFERENCES type(type_id),
+    CONSTRAINT fk_energycard_deck FOREIGN KEY (deck_id) REFERENCES deck(deck_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE attack (
     attack_id INT AUTO_INCREMENT,
-    pokemon_id INT,
+    card_id INT,
     damage INT NOT NULL,
-    description VARCHAR(50) NOT NULL,
+    description VARCHAR(100) NOT NULL,
     PRIMARY KEY (attack_id),
-    CONSTRAINT fk_attack_pokemon FOREIGN KEY (pokemon_id) REFERENCES pokemon_card(pokemon_id)
+    CONSTRAINT fk_attack_pokemon FOREIGN KEY (card_id) REFERENCES pokemon_card(card_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE attack_energy_req (
+CREATE TABLE attack_energy_cost (
     attack_id INT,
     type_id INT,
     amount SMALLINT NOT NULL,
